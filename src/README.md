@@ -53,8 +53,8 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right Moveit:=true 
 ~~~
 
 2. Select joints menu and setup goal position of each joint.
-![Screenshot from 2024-06-26 13-54-38|50](https://github.com/user-attachments/assets/a4df8c60-8171-4cc8-90a6-ac2132f7e586)
-![Screenshot from 2024-06-26 13-59-29|50](https://github.com/user-attachments/assets/d0b74bfe-05a6-42a2-95ff-7245901e38b8)
+![Screenshot from 2024-06-26 13-54-38](https://github.com/user-attachments/assets/a4df8c60-8171-4cc8-90a6-ac2132f7e586 width="100" height="100")
+![Screenshot from 2024-06-26 13-59-29](https://github.com/user-attachments/assets/d0b74bfe-05a6-42a2-95ff-7245901e38b8)
 
 
 3. Select Planning menu and set Start State: `<current>`.
