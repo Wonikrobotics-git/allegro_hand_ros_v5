@@ -53,7 +53,7 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right Moveit:=true 
 ~~~
 
 2. Select joints menu and setup goal position of each joint.
-![Screenshot from 2024-06-26 13-54-38](https://github.com/user-attachments/assets/a4df8c60-8171-4cc8-90a6-ac2132f7e586){:width="50" height="50"}
+![Screenshot from 2024-06-26 13-54-38](https://github.com/user-attachments/assets/a4df8c60-8171-4cc8-90a6-ac2132f7e586)
 ![Screenshot from 2024-06-26 13-59-29](https://github.com/user-attachments/assets/d0b74bfe-05a6-42a2-95ff-7245901e38b8)
 
 
@@ -66,7 +66,8 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right Moveit:=true 
 	**NOTE : After the log is printed, hand will move to goal joint position.**
 
 6. Use Keyboard `spacebar + Num(0~9)` to save current pose.
-![[Screenshot from 2024-06-26 14-40-58.png|700]]
+![Screenshot from 2024-06-26 14-40-58](https://github.com/user-attachments/assets/dc22ac65-98ff-4c38-9077-a2fbe1d4eb79)
+
 	 **NOTE : Pose will be saved with named '(pose + Num). yaml'**.
 
 ## Octave
@@ -77,7 +78,8 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right KEYBOARD:=tru
 ~~~
 
 2. Press `s` button on Allegro Hand terminal.
-![[Screenshot from 2024-06-26 14-40-58.png|700]]
+![Screenshot from 2024-06-26 14-40-58](https://github.com/user-attachments/assets/4ba9e2ae-b827-4c89-9f84-87dc7da83663)
+
 
 3. The accumulated data will be plot on your screen.
 
@@ -102,7 +104,8 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right GUI:=true
 ~~~
 
 4. You can now control the Hand with GUI program.
-![[Screenshot from 2024-08-12 10-57-00.png|700]]
+![Screenshot from 2024-08-12 10-57-00](https://github.com/user-attachments/assets/161a9a1f-9386-4742-80a4-b425b703483f)
+
 #### Button instruction
 - Clear log button : Clear log.
 - Exit button: Torque off and kill GUI program.
