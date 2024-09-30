@@ -70,6 +70,8 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right Moveit:=true 
 
 	 **NOTE : Pose will be saved with named '(pose + Num). yaml'**.
 
+7. Use Keyboard `Num(0~9)`(same as above num) to move hand to saved pose.
+
 ## Octave
 
 1. Launch main program.
