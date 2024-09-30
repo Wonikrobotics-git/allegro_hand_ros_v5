@@ -85,25 +85,12 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right KEYBOARD:=tru
 
 ## GUI
 
-1. Clone or Download Allegro Hand V5 Octave package.(https://github.com/shy0914/HIbo.git)
-~~~bash
-cd ~/allegro_hand_ros_v5-master-4finger/src
-git clone https://github.com/shy0914/HIbo.git
-
-~~~
-
-2. Build.
-~~~bash
-cd ~/allegro_hand_ros_v5-master-4finger
-catkin_make
-~~~
-
-3. Launch main program with GUI arguments.
+1. Launch main program with GUI arguments.
 ~~~bash
 roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right GUI:=true
 ~~~
 
-4. You can now control the Hand with GUI program.
+2. You can now control the Hand with GUI program.
 ![Screenshot from 2024-08-12 10-57-00](https://github.com/user-attachments/assets/161a9a1f-9386-4742-80a4-b425b703483f)
 
 #### Button instruction
