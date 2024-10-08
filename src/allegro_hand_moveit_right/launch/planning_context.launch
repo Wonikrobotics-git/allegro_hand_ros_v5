@@ -1,0 +1,33 @@
+<launch>
+  <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
+  <arg name="load_robot_description" default="false"/>
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+  <arg name="HAND" default="left"/>
+
+  <!-- Load universal robot description format (URDF) -->
+  <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find allegro_hand_description)/allegro_hand_description_$(arg HAND)_.urdf"/>
+
+  <!-- The semantic description that corresponds to the URDF -->
+  <param name="$(arg robot_description)_semantic" textfile="$(find allegro_hand_moveit_right)/config/allegro_hand_$(arg HAND).srdf" />
+
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find allegro_hand_moveit)/config/joint_limits.yaml"/>
+    <rosparam command="load" file="$(find allegro_hand_moveit)/config/cartesian_limits.yaml"/>
+  </group>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group ns="$(arg robot_description)_kinematics">
+    <rosparam command="load" file="$(find allegro_hand_moveit_right)/config/kinematics.yaml"/>
+
+  </group>
+
+   <node pkg="rostopic" type="rostopic" name="echo_node" 
+      args="echo /echo_topic" output="screen"/>
+
+<node pkg="rostopic" type="rostopic" name="pub_node" 
+      args="pub /echo_topic std_msgs/String 'data: $(arg HAND)'" output="screen"/>
+      
+</launch>
