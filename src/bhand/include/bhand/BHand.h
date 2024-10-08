@@ -23,6 +23,10 @@
  * - Data: 2012/08/31
  * @section MODIFYINFO
  * - 2012/08/31: Commit this document. (by Sean)
+ * @section MODIFYINFO
+ * - Author: Soohoon (Hibo) Yang
+ * - Data: 2012/08/31
+ * - 2024/10/23: Change several algorithm. (by Hibo)
  */
 
 #ifndef __BHAND_H__
@@ -42,21 +46,13 @@ enum eMotionType
 {
 	eMotionType_NONE,				///< power off
 	eMotionType_HOME,				///< go to home position
-	eMotionType_READY,				///< finger position move motion (ready)
-	eMotionType_GRAVITY_COMP,		///< finger position move motion (gravity compensation)
-	eMotionType_PRE_SHAPE,			///<
 	eMotionType_GRASP_3,			///< grasping using 3 fingers
 	eMotionType_GRASP_4,			///< grasping using 4 fingers
 	eMotionType_PINCH_IT,			///< pinching using index finger and thumb
 	eMotionType_PINCH_MT,			///< pinching using middle finger and thumb
-	eMotionType_OBJECT_MOVING,		///<
 	eMotionType_ENVELOP,			///< enveloping
 	eMotionType_JOINT_PD,			///< joint pd control
-	eMotionType_MOVE_OBJ,
-	eMotionType_FINGERTIP_MOVING,
-	eMotionType_DRILL,
-	eMotionType_HOME2,
-	eMotionType_HOME3,
+	eMotionType_GRAVITY_COMP,
 	eMotionType_SAVE,
 	NUMBER_OF_MOTION_TYPE
 };
@@ -209,21 +205,13 @@ private:
 	//void CalculateGravityRight();
 
 	void Motion_HomePosition();
-	void Motion_Ready();
 	void Motion_GravityComp();
-	void Motion_ReadyToMove();
-	void Motion_PreShape();
 	void Motion_Grasp3();
 	void Motion_Grasp4();
 	void Motion_PinchIT();
 	void Motion_PinchMT();
-	void Motion_ObjectMoving();
-	void Motion_FingertipMoving();
 	void Motion_Envelop();
 	void Motion_JointPD();
-	void Motion_Drill();
-	void Motion_HomePosition2();
-	void Motion_HomePosition3();
 	void Motion_Save();
 
 private:
@@ -310,8 +298,6 @@ private:
 
 	double _mass[NOF][NOJ];				///< link mass
 
-	double q_error[NOF][NOJ], q_error_sum[NOF][NOJ], init_q[NOF][NOJ];
-	double q_error1[NOF][NOJ], dq_error1[NOF][NOJ];
 };
 
 extern double _Time;
