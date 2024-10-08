@@ -46,9 +46,13 @@
      </include> 
      
   <arg name ="MOVEIT" default="false" />
-  <include file="$(find allegro_hand_moveit)/launch/demo.launch"
-           if="$(arg MOVEIT)">
-     </include>
+  <group>
+  <include file="$(find allegro_hand_moveit_right)/launch/demo.launch" if="$(eval MOVEIT and HAND == 'right')"/>
+  </group>
+
+  <group>
+  <include file="$(find allegro_hand_moveit_left)/launch/demo.launch" if="$(eval MOVEIT and HAND == 'left')"/>
+  </group>
     
 
   <arg name="CONTROLLER" default="grasp"/> <!-- grasp, pd, velsat  -->
@@ -79,11 +83,6 @@
    <param name="robot_description"
           command="cat $(find allegro_hand_description)/allegro_hand_description_$(arg HAND)_.urdf"/> 
 
- <!-- <param name="robot_description"
-         command="$(find xacro)/xacro
-                  $(find allegro_hand_description)/allegro_hand_description_$(arg HAND).xacro"/> -->
-
-  
 
   <!-- Allegro Hand controller and communication node. -->
   <node name="allegroHand_$(arg HAND)_$(arg NUM)"
