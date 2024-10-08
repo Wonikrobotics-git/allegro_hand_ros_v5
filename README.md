@@ -99,7 +99,7 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right
 
 ## Launch file instructions
 
-Same as the previous version of the ROS package, you can simply control Allegro Hand V5 by launching [[AllegroHand/Allegro Hand ROS1 (Ubuntu 20.04)/allegro_hand_ros_v5-4finger/src/allegro_hand_controllers/launch/allegro_hand.launch|allegro_hand.launch]]. It has many arguments, but at a minimum you must specify the handedness:
+Same as the previous version of the ROS package, you can simply control Allegro Hand V5 by launching `allegro_hand.launch`. It has many arguments, but at a minimum you must specify the handedness:
 ~~~bash
 roslaunch allegro_hand_controllers allegro_hand.launch HAND=right
 ~~~
