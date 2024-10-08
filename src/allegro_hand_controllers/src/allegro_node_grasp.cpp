@@ -16,13 +16,12 @@ std::map<std::string, eMotionType> bhand_grasps = {
         {"envelop",  eMotionType_ENVELOP},  // envelop grasp (power-y)
         {"off",      eMotionType_NONE},  // turn joints off
         {"gravcomp", eMotionType_GRAVITY_COMP},  // gravity compensation
-        {"home3", eMotionType_HOME3}, // home pose (motion control)
 };
 
 
 
 
-AllegroNodeGrasp::AllegroNodeGrasp()
+AllegroNodeGrasp::AllegroNodeGrasp() 
         : AllegroNode() {
 
   initController(whichHand);
@@ -51,7 +50,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
   auto itr = bhand_grasps.find(msg->data);
   if (itr != bhand_grasps.end()) {
     // Behavior pre-defined by Wonik Robotics.
-    if(lib_cmd.find("home") == 0)
+    if(lib_cmd.find("home") == 0 || lib_cmd.find("off") == 0)
     {
       command_place(_can_handle);
     }
@@ -111,19 +110,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
     }
 
     data.open(data_path);
-  } else if(lib_cmd.compare("sensor") == 0) {
-    // Reset all fingertip_sensors data.
-    // The last hand pose will remain the same. 
-    for (int i = 0; i < DOF_JOINTS; i++)
-      desired_position[i] = current_position[i];
-
-    command_pick(_can_handle);
-
-
-    pBHand->SetJointDesiredPosition(desired_position);
-    pBHand->SetMotionType(eMotionType_SAVE);
-
-  } else if (lib_cmd.compare("moveit") == 0) {
+  }  else if (lib_cmd.compare("moveit") == 0) {
     std::string pkg_path = ros::package::getPath("allegro_hand_controllers");
     std::string file_path = pkg_path + "/pose/pose_moveit.yaml";
 

@@ -82,7 +82,7 @@ AllegroNode::~AllegroNode() {
   nh.shutdown();
 }
 
-// Get Allegro Hand desired joint
+// Get Allegro Hand desired joint position
 void AllegroNode::desiredStateCallback(const sensor_msgs::JointState &msg) {
   mutex->lock();
   desired_joint_state = msg;
@@ -177,8 +177,6 @@ void AllegroNode::updateController() {
       // update joint positions:
       canDevice->getJointInfo(current_position);
 
-     
-
       // low-pass filtering:
       for (int i = 0; i < DOF_JOINTS; i++) {
         current_position_filtered[i] =  current_position[i];
@@ -191,12 +189,11 @@ void AllegroNode::updateController() {
       if (OperatingMode == 0) {
 
 					if ((fingertip_sensor[0] + fingertip_sensor[1] + fingertip_sensor[3]) > 200)
-							f[0] = f[1] = f[2] = force_get;//f[0] = f[1] = f[2] = 2.0f;
+							f[0] = f[1] = f[2] = force_get;
 					else
 							f[0] = f[1] = f[2] = 1.0f;
 
 			}     
-
 
       ///make an Arrow on Rviz
       Rviz_Arrow();
