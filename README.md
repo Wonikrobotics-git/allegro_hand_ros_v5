@@ -92,16 +92,16 @@ catkin_make
 5. Run or launch allegro node
 ~~~bash
 source devel/setup.bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A
 ~~~
 
 **Please check 'Launch file instructions' below.**
 
 ## Launch file instructions
 
-Same as the previous version of the ROS package, you can simply control Allegro Hand V5 by launching `allegro_hand.launch`. It has many arguments, but at a minimum you must specify the handedness:
+Same as the previous version of the ROS package, you can simply control Allegro Hand V5 by launching `allegro_hand.launch`. It has many arguments, but at a minimum you must specify the handedness and the hand type:
 ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND=right
+roslaunch allegro_hand_controllers allegro_hand.launch HAND=right|left TYPE:=A|B (A: non-geared, B: geared)
 ~~~
 
 Optional arguments:
@@ -115,22 +115,22 @@ Optional arguments:
 
 - If you want to visualize Allegro Hand on Rviz:
 ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND=right VISUALIZE:=true
+roslaunch allegro_hand_controllers allegro_hand.launch HAND=right TYPE:=A VISUALIZE:=true
 ~~~
 
 - If you want to control Allegro Hand with Keyboard:
 ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND=right KEYBOARD:=true
+roslaunch allegro_hand_controllers allegro_hand.launch HAND=right TYPE:=A KEYBOARD:=true
 ~~~
 
 - If you want to make pose or simulate Allegro Hand with MOVEIT:
  ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND=right MOVEIT:=true
+roslaunch allegro_hand_controllers allegro_hand.launch HAND=right TYPE:=A MOVEIT:=true
 ~~~
 
 - If you want to control Allegro Hand with Keyboard and GUI:
 ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND=right KEYBOARD:=true GUI:=true
+roslaunch allegro_hand_controllers allegro_hand.launch HAND=right TYPE:=A KEYBOARD:=true GUI:=true
 ~~~
 
 - **Note on `AUTO_CAN`: There is a nice script `detect_pcan.py` which automatically finds an open `/dev/pcanusb` file. If instead you specify the can device manually (`CAN_DEVICE:=/dev/pcanusbN`), make sure you _also_ specify `AUTO_CAN:=false`. Obviously, automatic detection cannot work with two hands.**
