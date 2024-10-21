@@ -67,6 +67,12 @@ enum eHandType
 	eHandType_Right					///< right hand
 };
 
+enum eHardwareType
+{
+	eHardwareType_B = 0,				///< Geared
+	eHardwareType_A					///< non - Geared
+};
+
 /**
  * BHand class.
  * @brief Allegro Hand grasping algorithm.
@@ -83,7 +89,7 @@ public:
 	 * @return It returns hand type, whether it is left or right hand.
 	 * @see eHandType
 	 */
-	eHandType GetType();
+	void GetType(eHardwareType hwt);
 
 	/**
 	 * Set time interval.
@@ -224,7 +230,8 @@ private:
 	
 	eHandType _handType;				///> whether it is for left hand or right
 	eMotionType _motionType;			///< type of motion currently set
-	
+	eHardwareType _hardwareType;		///> whether it is for Geared or non-Geared Hand
+
 	double _q[NOF][NOJ];				///< current joint angle (radian)
 	double _q_filtered[NOF][NOJ];		///< current joint angle (radian, low pass filtered)
 	double _q_pre[NOF][NOJ];			///< previous(last) joint angle (radian)
