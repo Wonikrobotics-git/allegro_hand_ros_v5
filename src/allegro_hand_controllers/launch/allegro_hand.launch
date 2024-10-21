@@ -2,6 +2,7 @@
   <!--
        Required arguments:
           HAND:=right|left
+          TYPE:=A|B
        Suggested arguments:
           NUM:=0|1|...
           ZEROS:=/path/to/zeros_file.yaml
@@ -80,8 +81,9 @@
 
   <!-- Load the robot description directly from the xacro file. (NOTE: store it
        in two parameter names.) -->
+   <arg name="TYPE"/>
    <param name="robot_description"
-          command="cat $(find allegro_hand_description)/allegro_hand_description_$(arg HAND)_.urdf"/> 
+          command="cat $(find allegro_hand_description)/allegro_hand_description_$(arg HAND)_$(arg TYPE).urdf"/> 
 
 
   <!-- Allegro Hand controller and communication node. -->
@@ -118,6 +120,7 @@
            if="$(arg AUTO_CAN)" />
 
     <param name="/hand_info/which_hand" value="$(arg HAND)" /> <!-- See HAND arg above -->
+    <param name="/hand_info/which_type" value="$(arg TYPE)" />
   </node>
 
   <!-- NOTE: The joint_state_publisher is actually commanding *desired* joint
