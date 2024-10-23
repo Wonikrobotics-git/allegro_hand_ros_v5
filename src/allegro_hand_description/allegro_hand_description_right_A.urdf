@@ -74,7 +74,7 @@
     <limit effort="15" lower="-0.47" upper="0.47" velocity="7"/>
     <parent link="palm_link"/>
     <child link="link_0_0"/>
-    <origin rpy="-0.08726646255 0 0" xyz="0.00 0.0425 -0.00945"/>
+    <origin rpy="-0.08726646255 0 0" xyz="0.00 0.0405 -0.00945"/>
     <dynamics damping="3" friction="10"/>
   </joint>
   <!-- [LINK 1, 5, 9] -->
@@ -218,7 +218,7 @@
     <limit effort="15" lower="-0.47" upper="0.47" velocity="7"/>
     <parent link="palm_link"/>
     <child link="link_4_0"/>
-    <origin rpy="0.0 0 0" xyz="0 0.005 -0.0079"/>
+    <origin rpy="0.0 0 0" xyz="0 0.00 -0.0079"/>
     <dynamics damping="3" friction="10"/>
   </joint>
   <!-- [LINK 1, 5, 9] -->
@@ -364,7 +364,7 @@
     <limit effort="15" lower="-0.47" upper="0.47" velocity="7"/>
     <parent link="palm_link"/>
     <child link="link_8_0"/>
-    <origin rpy="0.08726646255 0 0" xyz="0.0025 -0.036 -0.00945"/>
+    <origin rpy="0.08726646255 0 0" xyz="0.0025 -0.0405 -0.00945"/>
     <dynamics damping="3" friction="10"/>
   </joint>
   <!-- [LINK 1, 5, 9] -->
