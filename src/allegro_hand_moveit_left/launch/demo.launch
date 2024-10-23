@@ -1,5 +1,5 @@
 <launch>
-
+  <arg name = "TYPE" default="A"/>
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
 
@@ -51,6 +51,7 @@
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
     <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+    <arg name = "TYPE" value="$(arg TYPE)"/>
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
@@ -75,6 +76,6 @@
     <node name="allegro_joint_subscribers" pkg="allegro_hand_moveit_left" 
    type="allegro_joint_subscribers" output="screen" />
    
-   <param name="robot_description" command="cat $(find allegro_hand_description)/allegro_hand_description_left.urdf" />
+   <param name="robot_description" command="cat $(find allegro_hand_description)/allegro_hand_description_left_$(arg TYPE).urdf" />
 
 </launch>
