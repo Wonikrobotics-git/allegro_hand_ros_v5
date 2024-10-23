@@ -41,8 +41,8 @@
  *  Author:             Sean Yi
  *  Maintained by:      Sean Yi(seanyi@wonikrobotics.com)
  *  
- *  Modified on:        July 10, 2024
- *  Modified by :       Hibo(sh-yang@wonik.com)
+ *  Modified on:        Oct 10, 2024
+ *  Modified by :       Hibo Yang(sh-yang@wonik.com)
  */
 #ifndef __ALLEGROHAND_DRV_H__
 #define __ALLEGROHAND_DRV_H__
@@ -85,6 +85,8 @@ public:
     bool isJointInfoReady();                ///< return whether all joint positions are updated
     void resetJointInfoReady();             ///< reset joint position update flag
 
+    bool HAND_TYPE_A;                       ///< hand type
+    bool RIGHT_HAND;                        ///< handedness
 
 private:
     
@@ -108,7 +110,7 @@ private:
 
     volatile bool _emergency_stop;          ///< something goes wrong?
 
-    bool HAND_TYPE_A;                       ///< hand type
+    
 private:
     void _readDevices();                    ///< read CAN messages
     void _writeDevices();                   ///< write CAN messages(torque command)

@@ -178,7 +178,6 @@ bool AllegroHandDrv::isJointInfoReady()
 void AllegroHandDrv::resetJointInfoReady()
 {
     _curr_position_get = 0;
-   // command_pick(_can_handle);
 }
 
 void AllegroHandDrv::setTorque(double *torque)
@@ -267,7 +266,7 @@ void AllegroHandDrv::_writeDevices()
     for (int i = 0; i < DOF_JOINTS; i++) {
     if(HAND_TYPE_A)
      {
-        if(i == 1 || i == 4 || i == 7)
+        if(i == 1 || i == 5 || i == 9)
             _desired_torque[i] = 0.5 * _desired_torque[i];
      }   
 
@@ -341,13 +340,14 @@ void AllegroHandDrv::_parseMessage(int id, int len, unsigned char* data)
                     , data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7]);
             printf("                    hand_type       : %s\n",(data[2] == 'A' ? "A" : "B"));
             printf("                    handedness      : %s\n",(data[3] == 'R' ? "right" : "left"));   
-        }
-        if(data[2] == 'A')
-            HAND_TYPE_A = true;
-            
-        else
-            HAND_TYPE_A = false;
         
+        if(data[2] == 'A') HAND_TYPE_A = true;
+        else HAND_TYPE_A = false;
+        
+        if(data[3] == 'R') RIGHT_HAND = true;
+        else RIGHT_HAND  = false;
+
+        }
             break;
         case ID_RTR_FINGER_POSE_1:
         case ID_RTR_FINGER_POSE_2:
@@ -369,10 +369,10 @@ void AllegroHandDrv::_parseMessage(int id, int len, unsigned char* data)
             _curr_position[lIndexBase+2] = (double)(tmppos[2]) * ( 333.3 / 65536.0 ) * ( M_PI/180.0);
             _curr_position[lIndexBase+3] = (double)(tmppos[3]) * ( 333.3 / 65536.0 ) * ( M_PI/180.0);
 #else
-            _curr_position[lIndexBase+0] = (double)(tmppos[0]) * (M_PI / 180.0) * 0.088;//* ( 333.3 / 65536.0 ) * ( M_PI/180.0);
-            _curr_position[lIndexBase+1] = (double)(tmppos[1]) * (M_PI / 180.0) * 0.088;//* ( 333.3 / 65536.0 ) * ( M_PI/180.0);
-            _curr_position[lIndexBase+2] = (double)(tmppos[2]) * (M_PI / 180.0) * 0.088;//* ( 333.3 / 65536.0 ) * ( M_PI/180.0);
-            _curr_position[lIndexBase+3] = (double)(tmppos[3]) * (M_PI / 180.0) * 0.088;//* ( 333.3 / 65536.0 ) * ( M_PI/180.0);
+            _curr_position[lIndexBase+0] = (double)(tmppos[0]) * (M_PI / 180.0) * 0.088;
+            _curr_position[lIndexBase+1] = (double)(tmppos[1]) * (M_PI / 180.0) * 0.088;
+            _curr_position[lIndexBase+2] = (double)(tmppos[2]) * (M_PI / 180.0) * 0.088;
+            _curr_position[lIndexBase+3] = (double)(tmppos[3]) * (M_PI / 180.0) * 0.088;
 
         
 #endif
