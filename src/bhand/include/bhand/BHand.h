@@ -52,8 +52,10 @@ enum eMotionType
 	eMotionType_PINCH_MT,			///< pinching using middle finger and thumb
 	eMotionType_ENVELOP,			///< enveloping
 	eMotionType_JOINT_PD,			///< joint pd control
-	eMotionType_GRAVITY_COMP,
-	eMotionType_SAVE,
+	eMotionType_GRAVITY_COMP,		///< gravity compensation
+	eMotionType_SAVE,				///< saving current pose
+	eMotionType_A,					///< set Hand type to A(NON-GEARED)
+	eMotionType_B,					///< set Hand type to B(GEARED)
 	NUMBER_OF_MOTION_TYPE
 };
 
@@ -77,7 +79,12 @@ enum eHardwareType
  * BHand class.
  * @brief Allegro Hand grasping algorithm.
  * @author Jihoon Bae, SimLab
+ * 
+ * Modified information
+ * @brief Change several control gain & add serveral algorithm.
+ * @author Soohoon Yang, WonikRobotics
  */
+
 class BHANDEXPORT BHand
 {
 public:
@@ -89,7 +96,7 @@ public:
 	 * @return It returns hand type, whether it is left or right hand.
 	 * @see eHandType
 	 */
-	void GetType(eHardwareType hwt);
+	eHandType GetType();
 
 	/**
 	 * Set time interval.
@@ -203,12 +210,8 @@ private:
 	void SolveFKLeft();
 	void SolveFKRight();
 	void CalculateJacobian();
-	//void CalculateJacobianLeft();
-	//void CalculateJacobianRight();
 	void CalculateGravity();
 	void CalculateGravityEx();
-	//void CalculateGravityLeft();
-	//void CalculateGravityRight();
 
 	void Motion_HomePosition();
 	void Motion_GravityComp();
