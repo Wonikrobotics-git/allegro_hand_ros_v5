@@ -82,6 +82,7 @@ class AllegroNode {
   double desired_torque[DOF_JOINTS] = {0.0};
 
   std::string whichHand;  // Right or left hand.
+  std::string whichType;  // Right or left hand.
 
   // ROS stuff
   ros::NodeHandle nh;

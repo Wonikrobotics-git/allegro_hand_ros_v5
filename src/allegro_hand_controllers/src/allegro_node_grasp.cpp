@@ -1,5 +1,5 @@
 #include "allegro_node_grasp.h"
-
+#include "allegro_hand_driver/AllegroHandDrv.h"
 
 // The only topic specific to the 'grasp' controller is the envelop torque.
 const std::string ENVELOP_TORQUE_TOPIC = "allegroHand/envelop_torque";
@@ -24,7 +24,7 @@ std::map<std::string, eMotionType> bhand_grasps = {
 AllegroNodeGrasp::AllegroNodeGrasp() 
         : AllegroNode() {
 
-  initController(whichHand);
+  initController(whichHand,whichType);
 
   joint_cmd_sub = nh.subscribe(
           DESIRED_STATE_TOPIC, 3, &AllegroNodeGrasp::setJointCallback, this);
@@ -64,7 +64,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
     // New behavior for V5.
     // Can be any pose that saved in specified number of yaml pose file.
     // Desired position only necessary if in PD Control mode.
-    ROS_INFO("CTRL: Heard: [pdControl]");
+    
     std::string num_str = lib_cmd.substr(9);
 
     int pose_num = std::stoi(num_str);
@@ -190,16 +190,33 @@ void AllegroNodeGrasp::computeDesiredTorque() {
 
 }
 
-void AllegroNodeGrasp::initController(const std::string &whichHand) {
+void AllegroNodeGrasp::initController(const std::string &whichHand,const std::string &whichType) {
   // Initialize BHand controller
+
   if (whichHand.compare("left") == 0) {
     pBHand = new BHand(eHandType_Left);
     ROS_WARN("CTRL: Left Allegro Hand controller initialized.");
+
   }
   else {
     pBHand = new BHand(eHandType_Right);
     ROS_WARN("CTRL: Right Allegro Hand controller initialized.");
   }
+
+
+
+  if (whichType.compare("A") == 0){
+    pBHand->SetMotionType(eHardwareType_A);
+    ROS_WARN("CTRL: A-Type Allegro Hand controller initialized.");
+  }
+
+  else{
+    pBHand->SetMotionType(eHardwareType_B);
+    ROS_WARN("CTRL: B-Type Allegro Hand controller initialized.");
+  } 
+
+
+
   pBHand->SetTimeInterval(ALLEGRO_CONTROL_TIME_INTERVAL);
   pBHand->SetMotionType(eMotionType_NONE);
 
@@ -240,11 +257,11 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "allegro_hand_core_grasp");
   AllegroNodeGrasp grasping;
 
-  bool polling = false;
-  if (argv[1] == std::string("true")) {
-    polling = true;
-  }
+  bool polling = true;
+
   ROS_INFO("Start controller with polling = %d", polling);
 
   grasping.doIt(polling);
+
+  return 0;
 }

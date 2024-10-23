@@ -34,7 +34,7 @@ class AllegroNodeGrasp : public AllegroNode {
 
     ~AllegroNodeGrasp();
 
-    void initController(const std::string &whichHand);
+    void initController(const std::string &whichHand, const std::string &whichType);
 
     void computeDesiredTorque();
 

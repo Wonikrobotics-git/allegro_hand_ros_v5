@@ -43,6 +43,7 @@ AllegroNode::AllegroNode(bool sim /* = false */) {
   double version;
   ros::param::get("~hand_info/robot_name", robot_name);
   ros::param::get("~hand_info/which_hand", whichHand);
+  ros::param::get("~hand_info/which_type", whichType);
   ros::param::get("~hand_info/manufacturer", manufacturer);
   ros::param::get("~hand_info/origin", origin);
   ros::param::get("~hand_info/serial", serial);
@@ -225,6 +226,47 @@ void AllegroNode::updateController() {
       frame++;
 
     }
+
+    ///check if handedness & hand type are correctly entered:
+    if(frame == 1)
+    {
+
+      if(whichHand.compare("left") == 0)
+      {
+        if(canDevice->RIGHT_HAND){
+        ROS_ERROR("WRONG HANDEDNESS DETECTED!");
+        canDevice = 0;
+        return;
+        }
+      }
+      else
+      {
+        if(!canDevice->RIGHT_HAND){
+        ROS_ERROR("WRONG HANDEDNESS DETECTED!");
+        canDevice = 0;
+        return;
+        }
+      }
+
+      if(whichType.compare("A") == 0)
+      {
+        if(!canDevice->HAND_TYPE_A){
+        ROS_ERROR("WRONG TYPE DETECTED!");
+        canDevice = 0;
+        return;
+        }
+      }
+      else
+      {
+        if(canDevice->HAND_TYPE_A){
+        ROS_ERROR("WRONG TYPE DETECTED!");
+        canDevice = 0;
+        return;
+        }
+      }
+      
+    }
+
   }
 
   if (lEmergencyStop < 0) {
