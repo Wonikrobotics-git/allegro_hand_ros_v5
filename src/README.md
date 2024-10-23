@@ -42,8 +42,6 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right KEYBOARD:=tru
 ~~~
 
 8. Use keyboard command to move Allegro Hand.
-   
-**NOTE: More information in** https://github.com/Wonikrobotics-git/allegro_hand_ros_v5
 
 
 ## Moveit!
