@@ -207,7 +207,7 @@ void MainWindow::HomeButton()
     std_msgs::String msg;
     std::stringstream ss;
 
-    ss<<"home3";
+    ss<<"home";
 
     msg.data = ss.str();
     joint_cmd_pub.publish(msg);
