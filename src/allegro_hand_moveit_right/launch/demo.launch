@@ -1,5 +1,5 @@
 <launch>
-
+  <arg name = "TYPE" default="A"/>
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
 
@@ -22,7 +22,6 @@
   <!-- By default, hide joint_state_publisher's GUI in 'fake' controller_manager mode -->
   <arg name="use_gui" default="false" />
   <arg name="use_rviz" default="true" />
-  <arg name="HAND" default="right" />
   
   <!-- If needed, broadcast static tf for robot root -->
 
@@ -53,7 +52,7 @@
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
     <arg name="load_robot_description" value="$(arg load_robot_description)"/>
-    <arg name="HAND" value="$(arg HAND)"/>
+    <arg name ="TYPE" value="$(arg TYPE)"/>
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
@@ -78,7 +77,7 @@
     <node name="allegro_joint_subscriber" pkg="allegro_hand_moveit_right" 
    type="allegro_joint_subscriber" output="screen" />
    
-   <param name="robot_description" command="cat $(find allegro_hand_description)/allegro_hand_description_right.urdf" />
+   <param name="robot_description" command="cat $(find allegro_hand_description)/allegro_hand_description_right_$(arg TYPE).urdf" />
 
 
 </launch>
