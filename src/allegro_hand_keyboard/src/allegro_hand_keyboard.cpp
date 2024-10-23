@@ -105,11 +105,10 @@ void AHKeyboard::printUsage() {
   std::cout << "\tPinch (index+thumb):\t\t'P'" << std::endl;
   std::cout << "\tPinch (middle+thumb):\t\t'M'" << std::endl;
   std::cout << "\tGrasp (3 fingers):\t\t'G'" << std::endl;
-  std::cout << "\tGrasp (4 fingers):\t\t'F'" << std::endl;
+  std::cout << "\tGrasp (4 fingers):\t\t'K'" << std::endl;
   std::cout << "\tGrasp (envelop):\t\t'E'" << std::endl;
-  std::cout << "\tGravity compensation:\t\t'Z'" << std::endl;
-  std::cout << "\tFingertip sensor reset:\t\t'R'" << std::endl;
-  std::cout << "\tMotors Off (free motion):\t'O'" << std::endl;
+  std::cout << "\tGravity compensation:\t\t'A'" << std::endl;
+  std::cout << "\tMotors Off (free motion):\t'F'" << std::endl;
 
   std::cout << " -----------------------------------------------------------------------------" << std::endl;
   std::cout << "  MOVE IT\t(Need to install moveit package)" << std::endl;
@@ -190,14 +189,7 @@ void AHKeyboard::keyLoop()
       case KEYCODE_h:
         ROS_DEBUG("h_key: Home");
         OperatingMode = 0;
-        ss << "home3";
-        dirty = true;
-        break;
-
-      case KEYCODE_R:
-        ROS_DEBUG("h_key: fingertip reset");
-        OperatingMode = 0;
-        ss << "sensor";
+        ss << "home";
         dirty = true;
         break; 
 
@@ -208,31 +200,17 @@ void AHKeyboard::keyLoop()
         dirty = true;
       break;
 
-      case KEYCODE_t:
-        ROS_DEBUG("s_key: home3");
+      case KEYCODE_k:
+        ROS_DEBUG("g_key: Grasp (4 finger)");
         OperatingMode = 0;
-        ss << "grasp_3";
-        dirty = true;
-      break;
-
-      case KEYCODE_r:
-        ROS_DEBUG("r_key: Ready");
-        OperatingMode = 0;
-        ss << "sensor";
+        ss << "grasp_4";
         dirty = true;
         break;
 
       case KEYCODE_g:
-        ROS_DEBUG("g_key: Grasp (4 finger)");
+        ROS_DEBUG("g_key: Grasp (3 finger)");
         OperatingMode = 0;
         ss << "grasp_3";
-        dirty = true;
-        break;
-
-      case KEYCODE_f:
-        ROS_DEBUG("f_key: Grasp (3 finger)");
-        OperatingMode = 0;
-        ss << "grasp_4";
         dirty = true;
         break;
 
@@ -257,15 +235,15 @@ void AHKeyboard::keyLoop()
         dirty = true;
         break;
 
-      case KEYCODE_z:
-        ROS_DEBUG("z_key: Gravcomp");
+      case KEYCODE_a:
+        ROS_DEBUG("a_key: Gravcomp");
         OperatingMode = 0;
         ss << "gravcomp";
         dirty = true;
         break;
 
-      case KEYCODE_o:
-        ROS_DEBUG("o_key: Servos Off");
+      case KEYCODE_f:
+        ROS_DEBUG("f_key: Servos Off");
         OperatingMode = 0;
         ss << "off";
         dirty = true;
