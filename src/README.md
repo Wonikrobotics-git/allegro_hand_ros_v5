@@ -117,4 +117,5 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right GUI:=true
 	3. Choose how many times to repeat.
 	4. Start.
 - Reset : Fingertip sensor value reset.
-	**NOTE : When saving a pose, the name of pose file must not overlap with predefined pose name.**
+  
+**NOTE : When saving a pose, the name of pose file must not overlap with predefined pose name.**
