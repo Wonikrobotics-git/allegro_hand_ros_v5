@@ -145,6 +145,7 @@ pcaninfo
 2. Open two terminals and source the allegro hand workspace.
 
 3. Launch Allegro Hand packages using command below.
+
 Terminal 1:
 ~~~bash
 roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A NUM:=0 CAN_DEVICE:=/dev/pcanusb32 AUTO_CAN:=false KEYBOARD:=true
