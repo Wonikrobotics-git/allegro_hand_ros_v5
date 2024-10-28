@@ -134,3 +134,23 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND=right TYPE:=A KEYBOA
 ~~~
 
 - **Note on `AUTO_CAN`: There is a nice script `detect_pcan.py` which automatically finds an open `/dev/pcanusb` file. If instead you specify the can device manually (`CAN_DEVICE:=/dev/pcanusbN`), make sure you _also_ specify `AUTO_CAN:=false`. Obviously, automatic detection cannot work with two hands.**
+
+## Control more than one hand
+
+1. Specify the can device:
+~~~bash
+pcaninfo
+~~~
+
+2. Open two terminals and source the allegro hand workspace.
+
+3. Launch Allegro Hand packages using command below.
+Terminal 1:
+~~~bash
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A NUM:=0 CAN_DEVICE:=/dev/pcanusb32 AUTO_CAN:=false KEYBOARD:=true
+~~~
+Terminal 2:
+~~~bash
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=left TYPE:=A NUM:=1 CAN_DEVICE:=/dev/pcanusb33 AUTO_CAN:=false KEYBOARD:=true
+~~~
+
