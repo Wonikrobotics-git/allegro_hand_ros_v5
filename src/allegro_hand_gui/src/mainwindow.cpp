@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     time_pub_ = nh_.advertise<std_msgs::Float32>("timechange", 10);
     force_pub_ = nh_.advertise<std_msgs::Float32>("forcechange", 10);
-    joint_cmd_pub = nh_.advertise<std_msgs::String>("/allegroHand_0/lib_cmd", 10);
+    joint_cmd_pub = nh_.advertise<std_msgs::String>("/allegroHand/lib_cmd", 10);
 
     ui->listWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
