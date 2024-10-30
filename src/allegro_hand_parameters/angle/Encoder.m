@@ -79,38 +79,5 @@ for row = 1:4
     end
 end
 
-
-%%Calculated Torque
-
-
-figure('name','Torque')
-hold on
-torque_indices = [
-    1,  5,  9, 13;
-    2,  6, 10, 14;
-    3,  7, 11, 15;
-    4,  8, 12, 16
-];
-
-titles = {'INDEX', 'MIDDLE', 'RING', 'THUMB'};
-row_labels = {'first joint(yaw) [N/m]', 'second joint [N/m]', 'third joint [N/m]', 'fourth joint [N/m]'};
-
-for row = 1:4
-    for col = 1:4
-        subplot_idx = (row - 1) * 4 + col;
-        subplot(4, 4, subplot_idx);
-        hold on;
-        plot(t, torque(:, torque_indices(row, col)), 'LineWidth', 2);
-        xlabel('[sec]');
-        if col == 1
-            ylabel(row_labels{row});
-        end
-        if row == 1
-            title(titles{col});
-        end
-        set(gca(), 'FontSize', 30);
-    end
-end
-
 waitforbuttonpress;
 %%
