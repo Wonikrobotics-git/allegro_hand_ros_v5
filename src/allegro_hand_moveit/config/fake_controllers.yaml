@@ -1,0 +1,51 @@
+controller_list:
+  - name: fake_Index_finger_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint_0_0
+      - joint_1_0
+      - joint_2_0
+      - joint_3_0
+  - name: fake_Middle_finger_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint_4_0
+      - joint_5_0
+      - joint_6_0
+      - joint_7_0
+  - name: fake_Ring_finger_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint_8_0
+      - joint_9_0
+      - joint_10_0
+      - joint_11_0
+  - name: fake_Thumb_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint_12_0
+      - joint_13_0
+      - joint_14_0
+      - joint_15_0
+  - name: fake_HAND_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - joint_0_0
+      - joint_1_0
+      - joint_2_0
+      - joint_3_0
+      - joint_12_0
+      - joint_13_0
+      - joint_14_0
+      - joint_15_0
+      - joint_4_0
+      - joint_5_0
+      - joint_6_0
+      - joint_7_0
+      - joint_8_0
+      - joint_9_0
+      - joint_10_0
+      - joint_11_0
+initial:  # Define initial robot poses per group
+  - group: HAND
+    pose: DEFAULT
