@@ -42,19 +42,14 @@
      </include> 
      
   <arg name ="MOVEIT" default="false" />
-  <group>
-  <include file="$(find allegro_hand_moveit_right)/launch/demo.launch" if="$(eval MOVEIT and HAND == 'right')">
-  <arg name = "TYPE" value="$(arg TYPE)"/>
-  </include>
-  </group>
 
-  <group>
-  <include file="$(find allegro_hand_moveit_left)/launch/demo.launch" if="$(eval MOVEIT and HAND == 'left')">
+  <include file="$(find allegro_hand_moveit)/launch/demo.launch" if="$(arg MOVEIT)">
   <arg name = "TYPE" value="$(arg TYPE)"/>
+  <arg name = "HAND" value="$(arg HAND)"/>
+  <arg name="NUM" value="$(arg NUM)"/>
   </include>
-  </group>
+
     
-
   <arg name="CONTROLLER" default="grasp"/> <!-- grasp, pd, velsat  -->
   <!-- Controllers include:
        -grasp *
@@ -149,6 +144,7 @@
         type="allegro_hand_gui_node"
         output="screen"
         if="$(arg GUI)">
+  <remap from="allegroHand/lib_cmd" to="allegroHand_$(arg NUM)/lib_cmd"/>
   </node>
 
 
