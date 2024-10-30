@@ -1,7 +1,7 @@
 
 # Allegro Hand V5 ROS1
 
-This is the official release to control Allegro Hand V5 with ROS1. Mostly, it is based on the old release of Allegro Hand V4 ROS1 package.
+This is the official release to control Allegro Hand V5 with ROS1(Only V5 supported, V4 is not supported). Mostly, it is based on the old release of Allegro Hand V4 ROS1 package.
 You can find our old release of Allegro Hand V4 Ros package :(https://github.com/Wonikrobotics-git/allegro_hand_ros_v4)
 And the interfaces and controllers have been improved and rewritten by Soohoon Yang(Hibo) from Wonik Robotics.
 
