@@ -209,7 +209,7 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A GUI:=
 #### Button instruction
 - Clear log button : Clear log.
 - Exit button: Torque off and kill GUI program.
-- Change button: Change hand motion time (spin box default: 1, range: 0.8~2.0)
+- Change button: Change hand motion time (spin box default: 1, range: 0.8~1.5)
 - Apply: Apply force when grasp (default: 2.0, range: 0.0~6.0)
 - Vertical bar: Change & Apply real-time grasp force by moving vertical bar.
 - Home:  Home pose
