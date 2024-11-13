@@ -201,17 +201,6 @@ void AllegroNode::updateController() {
       // calculate control torque:
       computeDesiredTorque();
 
-
-      // save encoder & torque data
-      data << current_position[0]<<" "<< current_position[1]<<" "<< current_position[2]<<" "<< current_position[3]<<" "
-           << current_position[4]<<" "<< current_position[5]<<" "<< current_position[6]<<" "<< current_position[7]<<" "
-           << current_position[8]<<" "<< current_position[9]<<" "<< current_position[10]<<" "<< current_position[11]<<" "
-           << current_position[12]<<" "<< current_position[13]<<" "<< current_position[14]<<" "<< current_position[15]<<" "
-           << desired_torque[0]<<" "<< desired_torque[1]<<" "<< desired_torque[2]<<" "<< desired_torque[3]<<" "
-           << desired_torque[4]<<" "<< desired_torque[5]<<" "<< desired_torque[6]<<" "<< desired_torque[7]<<" "
-           << desired_torque[8]<<" "<< desired_torque[9]<<" "<< desired_torque[10]<<" "<< desired_torque[11]<<" "
-           << desired_torque[12]<<" "<< desired_torque[13]<<" "<< desired_torque[14]<<" "<< desired_torque[15]<<" "<<std::endl;
-
       // set & write torque to each joint:
       canDevice->setTorque(desired_torque);
       lEmergencyStop = canDevice->writeJointTorque();

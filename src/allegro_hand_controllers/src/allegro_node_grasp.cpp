@@ -89,28 +89,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
     pBHand->SetJointDesiredPosition(desired_position);
     pBHand->SetMotionType(eMotionType_JOINT_PD);
 
-  } else if (lib_cmd.compare("save") == 0) {
-    // Save data and make graph with Octave
-    
-    for (int i = 0; i < DOF_JOINTS; i++)
-      desired_position[i] = current_position[i];
-    
-    data.close();
-
-    pBHand->SetJointDesiredPosition(desired_position);
-    pBHand->SetMotionType(eMotionType_SAVE);
-
-    std::string package_name = "allegro_hand_octave";
-    std::string node_name = "octave_script_runner";
-    std::string command = "rosrun " + package_name + " " + node_name;
-    try {
-      system(command.c_str());
-    } catch (const std::system_error& e) {
-      ROS_WARN("Failed to run %s node: %s", node_name.c_str(), e.what());
-    }
-
-    data.open(data_path);
-  }  else if (lib_cmd.compare("moveit") == 0) {
+  }   else if (lib_cmd.compare("moveit") == 0) {
     std::string pkg_path = ros::package::getPath("allegro_hand_controllers");
     std::string file_path = pkg_path + "/pose/pose_moveit.yaml";
 
@@ -249,11 +228,6 @@ void AllegroNodeGrasp::doIt(bool polling) {
 
 int main(int argc, char **argv) {
 
-  ///// This is for saving encoder & desired angle data. It will be placed in the allgero_hand_parameters package.
-  pkg1_path = ros::package::getPath("allegro_hand_parameters");
-  data_path = pkg1_path + "/angle/data.txt";  
-  data.open(data_path);
-  
   ros::init(argc, argv, "allegro_hand_core_grasp");
   AllegroNodeGrasp grasping;
 

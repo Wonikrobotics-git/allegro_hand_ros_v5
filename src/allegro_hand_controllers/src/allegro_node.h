@@ -116,8 +116,6 @@ class AllegroNode {
 
 };
 
-std::ofstream data; //encoder data
-
 double motion_time = 0.5;//
 double force_get = 2.0f;//
 
