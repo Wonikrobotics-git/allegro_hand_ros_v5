@@ -2,7 +2,7 @@
 
 1. Start Moveit
 ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right Moveit:=true KEYBOARD:=true
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A MOVEIT:=true KEYBOARD:=true
 ~~~
 
 2. Select joints menu and setup goal position of each joint.
@@ -29,7 +29,7 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right Moveit:=true 
 
 1. Launch main program.
 ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right KEYBOARD:=true
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A KEYBOARD:=true
 ~~~
 
 2. Press `s` button on Allegro Hand terminal.
@@ -42,7 +42,7 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right KEYBOARD:=tru
 
 1. Launch main program with GUI arguments.
 ~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right GUI:=true
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A GUI:=true
 ~~~
 
 2. You can now control the Hand with GUI program.
