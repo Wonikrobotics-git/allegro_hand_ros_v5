@@ -107,6 +107,8 @@ source devel/setup.bash
 roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A KEYBOARD:=true
 ~~~
 
+**If you get 'Permission denied' error, please chmod +x detect_pcan.py in allegro_hand_description/scripts folder**
+
 8. Use keyboard command to move Allegro Hand.
 
 **Please check 'Launch file instructions' below.**
