@@ -195,3 +195,39 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A MOVEI
 	 **NOTE : Pose will be saved with named '(pose + Num). yaml'**.
 
 7. Use Keyboard `Num(0~9)`(same as above num) to move hand to saved pose.
+
+## GUI
+
+1. Launch main program with GUI arguments.
+~~~bash
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A GUI:=true
+~~~
+
+2. You can now control the Hand with GUI program.
+![Screenshot from 2024-08-12 10-57-00](https://github.com/user-attachments/assets/161a9a1f-9386-4742-80a4-b425b703483f)
+
+#### Button instruction
+- Clear log button : Clear log.
+- Exit button: Torque off and kill GUI program.
+- Change button: Change hand motion time (spin box default: 1, range: 0.8~2.0)
+- Apply: Apply force when grasp (default: 2.0, range: 0.0~6.0)
+- Vertical bar: Change & Apply real-time grasp force by moving vertical bar.
+- Home:  Home pose
+- Grasp: 4finger Grap pose
+- GravityComp: Gravity Compensate each link.
+- Off:  Torqueoff
+- Save
+	1. Select pose number or type pose fiel name to save.
+	2. Save current joint of Moveit in yaml.
+- Move
+	1. Select Pose number or pose file.
+	2. Move Allegro Hand to saved pose.
+	3. Refresh : the pose file list will be reloaded.
+- Custom Hand Pose Repeat
+	1. Select number of poses you want to repeat.
+	2. Select poses by paying attention to the order in proportion to the number of poses selected.
+	3. Choose how many times to repeat.
+	4. Start.
+- Reset : Fingertip sensor value reset.
+  
+**NOTE : When saving a pose, the name of pose file must not overlap with predefined pose name.**
