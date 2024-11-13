@@ -169,3 +169,29 @@ Terminal 2:
 roslaunch allegro_hand_controllers allegro_hand.launch HAND:=left TYPE:=A NUM:=1 CAN_DEVICE:=/dev/pcanusb33 AUTO_CAN:=false KEYBOARD:=true
 ~~~
 
+## Moveit!
+
+1. Start Moveit
+~~~bash
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A MOVEIT:=true KEYBOARD:=true
+~~~
+
+2. Select joints menu and setup goal position of each joint.
+![Screenshot from 2024-06-26 13-54-38](https://github.com/user-attachments/assets/a4df8c60-8171-4cc8-90a6-ac2132f7e586)
+![Screenshot from 2024-06-26 13-59-29](https://github.com/user-attachments/assets/d0b74bfe-05a6-42a2-95ff-7245901e38b8)
+
+
+3. Select Planning menu and set Start State: `<current>`.
+
+4. Click `Plan`button and `Execute`button.
+
+5. `Execution completed: SUCCEEDED` and `joint states save complete` will be print on terminal.
+
+	**NOTE : After the log is printed, hand will move to goal joint position.**
+
+6. Use Keyboard `spacebar + Num(0~9)` to save current pose.
+![Screenshot from 2024-06-26 14-40-58](https://github.com/user-attachments/assets/dc22ac65-98ff-4c38-9077-a2fbe1d4eb79)
+
+	 **NOTE : Pose will be saved with named '(pose + Num). yaml'**.
+
+7. Use Keyboard `Num(0~9)`(same as above num) to move hand to saved pose.
