@@ -117,10 +117,6 @@ void AHKeyboard::printUsage() {
   std::cout << "\tSave Latest Moveit Pose:\t'Space + 0 ~ 9'" << std::endl;
 
   std::cout << " -----------------------------------------------------------------------------" << std::endl;
-  std::cout << "  OCTAVE\t(Need to install Octave)" << std::endl;
-  std::cout << " -----------------------------------------------------------------------------" << std::endl;
-  std::cout << "\tSave Data & Plot:\t\t'S'" << std::endl;
-  std::cout << " -----------------------------------------------------------------------------" << std::endl;
   std::cout << "  Subscriber code for reading these messages is included in '~core_template'." << std::endl;
   std::cout << " -----------------------------------------------------------------------------\n" << std::endl;
 
@@ -192,13 +188,6 @@ void AHKeyboard::keyLoop()
         ss << "home";
         dirty = true;
         break; 
-
-      case KEYCODE_s:
-        ROS_DEBUG("s_key: save");
-        OperatingMode = 0;
-        ss << "save";
-        dirty = true;
-      break;
 
       case KEYCODE_k:
         ROS_DEBUG("g_key: Grasp (4 finger)");
