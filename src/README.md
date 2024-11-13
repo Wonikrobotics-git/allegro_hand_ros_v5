@@ -27,16 +27,21 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A MOVEI
 
 ## Octave
 
-1. Launch main program.
+1. Install Octave program.
+~~~bash
+sudo apt-get install octave
+~~~
+
+2. Launch main program.
 ~~~bash
 roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A KEYBOARD:=true
 ~~~
 
-2. Press `s` button on Allegro Hand terminal.
+3. Press `s` button on Allegro Hand terminal.
 ![Screenshot from 2024-06-26 14-40-58](https://github.com/user-attachments/assets/4ba9e2ae-b827-4c89-9f84-87dc7da83663)
 
 
-3. The accumulated data will be plot on your screen.
+4. The accumulated data will be plot on your screen.
 
 ## GUI
 
