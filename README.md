@@ -12,7 +12,7 @@ We reduce several unnecessary package/nodes(allegro_hand,allegro_node_pd...) and
 - Visualize Allegro Hand V5 changing in real time in Rviz.
 - Simply control hand with GUI tool instead of using keyboard.
 
-These packages are tested on ROS Melodic(Ubuntu 18.04) and Noetic(Ubuntu 20.04). It will likely not work with previous versions(Kinetic ...).
+These packages are tested on ROS Noetic(Ubuntu 20.04) and Melodic(Ubuntu 18.04). It will likely not work with previous versions(Kinetic ...).
 
 ## Useful Links
 - Official Allegro Hand Website : https://www.allegrohand.com/
