@@ -25,23 +25,6 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A MOVEI
 
 7. Use Keyboard `Num(0~9)`(same as above num) to move hand to saved pose.
 
-## Octave
-
-1. Install Octave program.
-~~~bash
-sudo apt-get install octave
-~~~
-
-2. Launch main program.
-~~~bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A KEYBOARD:=true
-~~~
-
-3. Press `s` button on Allegro Hand terminal.
-![Screenshot from 2024-06-26 14-40-58](https://github.com/user-attachments/assets/4ba9e2ae-b827-4c89-9f84-87dc7da83663)
-
-
-4. The accumulated data will be plot on your screen.
 
 ## GUI
 
