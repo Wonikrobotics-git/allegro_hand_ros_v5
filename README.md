@@ -65,35 +65,49 @@ pcaninfo
 
 ## Run main controller nodes
 
-1. Make new workspace.
+1. Make your own Workspace.
 ~~~bash
-mkdir allegro_ws
+mkdir ~/allegro_ws
 ~~~
 
-2. Download ROS package for Allegro Hand V5 using below command.
+2. Install necessary packages.
 ~~~bash
-cd ~/allegro_ws
+sudo apt-get update
+sudo apt-get install ros-<distro>-visualization-msgs
+rosdep jsk 부분
+~~~
+
+3. Clone or Download Allegro Hand V5 ROS package.(https://github.com/Wonikrobotics-git/allegro_hand_ros_v5.git)
+~~~bash
 git clone https://github.com/Wonikrobotics-git/allegro_hand_ros_v5.git
 ~~~
 
-3. Install BHand Library
+4. Install BHand library
 ~~~bash
 cd allegro_hand_ros_v5-master-4finger/src/bhand
+
 sudo make install
+
 sudo ldconfig
 ~~~
 
-4. Build
+5. Build Allegro Hand V5 ROS package.
 ~~~bash
 cd ~/allegro_ws/allegro_hand_ros_v5-master-4finger
+
 catkin_make
+
+source devel/setup.bash
 ~~~
 
-5. Run or launch allegro node
+6. Connect PCAN-USB and Allegro Hand (**make sure to power on Allegro Hand**)
+7. Start the ROS package.
 ~~~bash
 source devel/setup.bash
-roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A
+roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A KEYBOARD:=true
 ~~~
+
+8. Use keyboard command to move Allegro Hand.
 
 **Please check 'Launch file instructions' below.**
 
