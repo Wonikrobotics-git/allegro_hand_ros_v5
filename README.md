@@ -10,7 +10,6 @@ We reduce several unnecessary package/nodes(allegro_hand,allegro_node_pd...) and
 **Also we now provide some new actions:**
 - Save customize pose using Moveit and move to the saved pose.
 - Visualize Allegro Hand V5 changing in real time in Rviz.
-- Provide encoder and torque graph using Octave.
 - Simply control hand with GUI tool instead of using keyboard.
 
 These packages are tested on ROS Melodic(Ubuntu 18.04) and Noetic(Ubuntu 20.04). It will likely not work with previous versions(Kinetic ...).
@@ -31,7 +30,6 @@ These packages are tested on ROS Melodic(Ubuntu 18.04) and Noetic(Ubuntu 20.04).
 - allegro_hand_gui : Node that control the allegro hand with gui program.
 - allegro_hand_keyboard : Node that sends the command to control Allegro Hand. All commands need to be pre-defined.
 - allegro_hand_moveit : Provide MOVEIT package for Allegro Hand V5.
-- allegro_hand_octave : Provide Octave package for extract graph of encoder data and torque data.
 - allegro_hand_parameters : Offset and servo directions for each of the 16 joints, and some meta information about the hand.
 - bhand : Library files for the predefined grasps and actions., available on 64 bit versions.
 
