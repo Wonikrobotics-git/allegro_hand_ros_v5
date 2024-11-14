@@ -196,7 +196,7 @@ roslaunch allegro_hand_controllers allegro_hand.launch HAND:=right TYPE:=A MOVEI
 
 7. Use Keyboard `Num(0~9)`(same as above num) to move hand to saved pose.
 
-## GUI
+## GUI (recommend to set the display scale to 100%)
 
 1. Launch main program with GUI arguments.
 ~~~bash
