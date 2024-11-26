@@ -87,7 +87,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
     }
 
     pBHand->SetJointDesiredPosition(desired_position);
-    pBHand->SetMotionType(eMotionType_JOINT_PD);
+    pBHand->SetMotionType(eMotionType_POSE_PD);
 
   }   else if (lib_cmd.compare("moveit") == 0) {
     std::string pkg_path = ros::package::getPath("allegro_hand_controllers");
@@ -107,7 +107,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
     }
 
     pBHand->SetJointDesiredPosition(desired_position);
-    pBHand->SetMotionType(eMotionType_JOINT_PD);
+    pBHand->SetMotionType(eMotionType_POSE_PD);
 
   }
   else {
@@ -126,7 +126,7 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
             desired_position[i] = positions[i];
         }
         pBHand->SetJointDesiredPosition(desired_position);
-        pBHand->SetMotionType(eMotionType_JOINT_PD);
+        pBHand->SetMotionType(eMotionType_POSE_PD);
     //ROS_WARN("Unknown commanded grasp: %s.", lib_cmd.c_str());
   }
 
