@@ -25,7 +25,7 @@
  * - 2012/08/31: Commit this document. (by Sean)
  * @section MODIFYINFO
  * - Author: Soohoon (Hibo) Yang
- * - Data: 2012/08/31
+ * - Data: 2024/10/23
  * - 2024/10/23: Change several algorithm. (by Hibo)
  */
 
@@ -52,6 +52,7 @@ enum eMotionType
 	eMotionType_PINCH_MT,			///< pinching using middle finger and thumb
 	eMotionType_ENVELOP,			///< enveloping
 	eMotionType_JOINT_PD,			///< joint pd control
+	eMotionType_POSE_PD,			///< custom pose pd control
 	eMotionType_GRAVITY_COMP,		///< gravity compensation
 	eMotionType_SAVE,				///< saving current pose
 	eMotionType_A,					///< set Hand type to A(NON-GEARED)
@@ -199,7 +200,9 @@ public:
 	 */
 	void SetOrientation(double roll, double pitch, double yaw);
 	void SetOrientation(double R[9]);
-
+	/**
+	 * Set Control time (Home position & Pose Pd)
+	 */
 	void SetMotiontime(double time);
 
 
@@ -221,6 +224,7 @@ private:
 	void Motion_PinchMT();
 	void Motion_Envelop();
 	void Motion_JointPD();
+	void Motion_PosePD();
 	void Motion_Save();
 
 private:
@@ -247,10 +251,10 @@ private:
 	double _tau_cal[NOF][NOJ];
 	double _envelop_torque_scalar;		///< used to control (scale) the torque applied during enveloping grasp
 
-	double _kp[NOF][NOJ];				///< proportional control gain for each joint
-	double _kd[NOF][NOJ];				///< derivative control gain for each joint
-	double _kp1[NOF][NOJ];				///< proportional control gain for each joint
-	double _kd1[NOF][NOJ];				///< derivative control gain for each joint
+	double _kp[NOF][NOJ];				///< proportional control gain for each joint (Joint Pd)
+	double _kd[NOF][NOJ];				///< derivative control gain for each joint (Joint Pd)
+	double _kp1[NOF][NOJ];				///< proportional control gain for each joint (Home position & Pose Pd)
+	double _kd1[NOF][NOJ];				///< derivative control gain for each joint (Home position & Pose Pd)
 	double _ki1[NOF][NOJ];
 	
 	double _kp_task[NOF][NOJ];			///<
