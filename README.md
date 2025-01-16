@@ -1,6 +1,6 @@
 
-<img src="https://github.com/user-attachments/assets/b198accd-5de4-4cfc-a347-05899c0391b3" width="485" align="left">
-<img src="https://github.com/user-attachments/assets/48640d7e-a8db-4758-9770-bcc1b3e68434" width="485" align="right">
+<img src="https://github.com/user-attachments/assets/b198accd-5de4-4cfc-a347-05899c0391b3" width="300" align="left">
+<img src="https://github.com/user-attachments/assets/48640d7e-a8db-4758-9770-bcc1b3e68434" width="300" align="right">
 	
 # Allegro Hand V5 ROS1
 This is the official release to control Allegro Hand V5 with ROS1(Only V5 supported, V4 is not supported). Mostly, it is based on the old release of Allegro Hand V4 ROS1 package.
