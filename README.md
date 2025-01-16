@@ -1,7 +1,7 @@
 #
 
 <img src="https://github.com/user-attachments/assets/b198accd-5de4-4cfc-a347-05899c0391b3" width="300" align="left">
-<img src="https://github.com/user-attachments/assets/48640d7e-a8db-4758-9770-bcc1b3e68434" width="300" align="right">
+<img src="https://github.com/user-attachments/assets/48640d7e-a8db-4758-9770-bcc1b3e68434" width="300" align="center">
 
 
 # Allegro Hand V5 ROS1
