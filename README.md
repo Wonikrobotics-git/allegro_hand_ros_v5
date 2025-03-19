@@ -76,6 +76,7 @@ mkdir ~/allegro_ws
 sudo apt-get update
 sudo apt-get install ros-<distro>-visualization-msgs
 sudo apt-get install ros-<distro>-jsk-rviz-plugins
+sudo apt install ros-<distro>-moveit
 ~~~
 
 3. Clone or Download Allegro Hand V5 ROS package.(https://github.com/Wonikrobotics-git/allegro_hand_ros_v5.git)
