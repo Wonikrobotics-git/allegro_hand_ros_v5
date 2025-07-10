@@ -6,7 +6,7 @@
 # Allegro Hand V5 ROS1
 > [!IMPORTANT]</br>
 > **Date : 25/07/10**</br>
-> **We have recently resolved an issue where some fingertip sensor values were delayed. To address this, we have uploaded the updated firmware at the link below. Please update the firmware and download and build the ROS2 package again.**</br>
+> **We have recently resolved an issue where some fingertip sensor values were delayed. To address this, we have uploaded the updated firmware at the link below. Please update the firmware and download and build the ROS1 package again.**</br>
 > [allegro_hand_v5_firmware](https://github.com/Wonikrobotics-git/allegro_hand_v5_firmware)
 
 This is the official release to control Allegro Hand V5 with ROS1(Only V5 supported, V4 is not supported). Mostly, it is based on the old release of Allegro Hand V4 ROS1 package.
