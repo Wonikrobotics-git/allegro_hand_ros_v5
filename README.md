@@ -7,7 +7,7 @@
 > [!IMPORTANT]</br>
 > **Date : 25/07/10**</br>
 > **We have recently resolved an issue where some fingertip sensor values were delayed. To address this, we have uploaded the updated firmware at the link below. Please update the firmware and download and build the ROS1 package again.**</br>
-> [allegro_hand_v5_firmware](https://github.com/Wonikrobotics-git/allegro_hand_v5_firmware)
+> [allegro_hand_v5_firmware](https://github.com/Wonikrobotics-git/allegro_hand_v5_firmware)</br>
 > **Please update the firmware by referring to the "Firmware Update" section in the user manual.**
 > 
 
