@@ -109,6 +109,7 @@ void AHKeyboard::printUsage() {
   std::cout << "\tGrasp (envelop):\t\t'E'" << std::endl;
   std::cout << "\tGravity compensation:\t\t'A'" << std::endl;
   std::cout << "\tMotors Off (free motion):\t'F'" << std::endl;
+  std::cout << "\tMotor Calibration:\t\t'C'" << std::endl;
 
   std::cout << " -----------------------------------------------------------------------------" << std::endl;
   std::cout << "  MOVE IT\t(Need to install moveit package)" << std::endl;
@@ -235,6 +236,13 @@ void AHKeyboard::keyLoop()
         ROS_DEBUG("f_key: Servos Off");
         OperatingMode = 0;
         ss << "off";
+        dirty = true;
+        break;
+
+      case KEYCODE_c:
+        ROS_DEBUG("c_key: Calibration");
+        OperatingMode = 0;
+        ss << "calibration";
         dirty = true;
         break;
         
