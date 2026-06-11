@@ -83,6 +83,11 @@ CANAPI_BEGIN
 #define ID_CMD_PLACE_STATUS				 0x12
 
 ////////////////////////////////////////////////
+//  Define CAN Command for Calibration
+#define ID_CMD_Position_Calibration_S   0x89
+#define ID_CMD_Position_Calibration_R   0x92
+
+////////////////////////////////////////////////
 //  Define CAN Data Reqeust (RTR)
 #define ID_RTR_HAND_INFO                0x80
 #define ID_RTR_SERIAL                   0x88

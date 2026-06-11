@@ -321,6 +321,19 @@ int command_place(void* ch)
 	return ret;
 }
 
+int command_calibration(void* ch)
+{
+
+	long Txid;
+	unsigned char data[8];
+	int ret;
+
+	Txid = ID_CMD_Position_Calibration_S;
+	ret = canSendMsg(ch, Txid, 0, data, TRUE, 0);
+    
+	return ret;
+}
+
 int command_set_torque(void* ch, int findex, short* pwm)
 {
     assert(findex >= 0 && findex < NUM_OF_FINGERS);

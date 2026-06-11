@@ -349,6 +349,12 @@ void AllegroHandDrv::_parseMessage(int id, int len, unsigned char* data)
 
         }
             break;
+
+        case ID_CMD_Position_Calibration_R:
+        {
+            printf(">CAN(): Position calibration is completed.\n");
+        }
+            break;
         case ID_RTR_FINGER_POSE_1:
         case ID_RTR_FINGER_POSE_2:
         case ID_RTR_FINGER_POSE_3:
