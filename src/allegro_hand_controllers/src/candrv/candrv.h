@@ -162,6 +162,14 @@ int command_place(void* ch);
  * @return
  */
 
+int command_calibration(void* ch);
+/** 
+ * @brief command_calibration
+ * @param ch
+ * @return
+ */
+
+
 int command_set_pose(void* ch, int findex, short* jposition);
 /**
  * @brief command_set_pose

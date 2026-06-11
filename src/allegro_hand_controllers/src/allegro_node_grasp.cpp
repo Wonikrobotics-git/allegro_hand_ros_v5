@@ -109,7 +109,12 @@ void AllegroNodeGrasp::libCmdCallback(const std_msgs::String::ConstPtr &msg) {
     pBHand->SetJointDesiredPosition(desired_position);
     pBHand->SetMotionType(eMotionType_POSE_PD);
 
-  }
+  } else if(lib_cmd.compare("calibration") == 0) {
+    ///motor calibration
+    //caution! : All motor encoder angle values will be set to 0.
+    command_calibration(_can_handle);
+
+  } 
   else {
        std::string pkg_path = ros::package::getPath("allegro_hand_controllers");
         std::string file_path = pkg_path + "/pose/" + lib_cmd + ".yaml";
